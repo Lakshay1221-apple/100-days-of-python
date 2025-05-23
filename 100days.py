@@ -268,49 +268,49 @@ except ValueError:
 # HEADS OR TAILS
 
     
-# import random
-# c = ("heads" , "tails")
-# v = random.choice(c)
-# print(v)
+import random
+c = ("heads" , "tails")
+v = random.choice(c)
+print(v)
 
-# which number is greatest
+which number is greatest
 
-# nums = input("Enter two 2-digit numbers separated by a space: ")
-# num1_str, num2_str = nums.split()
+nums = input("Enter two 2-digit numbers separated by a space: ")
+num1_str, num2_str = nums.split()
 
-# num1 = int(num1_str)
-# num2 = int(num2_str)
+num1 = int(num1_str)
+num2 = int(num2_str)
 
-# if num1 > num2:
-#     print("First number is greater")
-# elif num2 > num1:
-#     print("Second number is greater")
-# else:
-#     print("Both numbers are equal")
+if num1 > num2:
+    print("First number is greater")
+elif num2 > num1:
+    print("Second number is greater")
+else:
+    print("Both numbers are equal")
 
 
 #FINDING THE MAX MARKS OF THE STUDENTS
 
 
-# print("Max student Score")
-# student_score = [78, 65, 89, 86, 55, ]
-# max_score = 0
-# for score in student_score:
-#     if score > max_score:
-#         max_score  = score
-# print(f"The highest score in the class is: {max_score}")
+print("Max student Score")
+student_score = [78, 65, 89, 86, 55, ]
+max_score = 0
+for score in student_score:
+    if score > max_score:
+        max_score  = score
+print(f"The highest score in the class is: {max_score}")
 
 
 
 #ADDING UP DIGITS FROM 1 TO 100
 
 
-# print("Adding up digits from 1 to 100")
-# total = 0
-# for number in range(1, 101):
-#     total += number
-#     print(f"Adding {number} gives {total}")
-# print(f"The total is of all the numbers from 1 to 100 is {total}")
+print("Adding up digits from 1 to 100")
+total = 0
+for number in range(1, 101):
+    total += number
+    print(f"Adding {number} gives {total}")
+print(f"The total is of all the numbers from 1 to 100 is {total}")
 
 
 # FizzBuzz Game
