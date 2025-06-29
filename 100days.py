@@ -268,49 +268,49 @@
 # # HEADS OR TAILS
 
     
-import random
-c = ("heads" , "tails")
-v = random.choice(c)
-print(v)
+# import random
+# c = ("heads" , "tails")
+# v = random.choice(c)
+# print(v)
 
-which number is greatest
+# which number is greatest
 
-nums = input("Enter two 2-digit numbers separated by a space: ")
-num1_str, num2_str = nums.split()
+# nums = input("Enter two 2-digit numbers separated by a space: ")
+# num1_str, num2_str = nums.split()
 
-num1 = int(num1_str)
-num2 = int(num2_str)
+# num1 = int(num1_str)
+# num2 = int(num2_str)
 
-if num1 > num2:
-    print("First number is greater")
-elif num2 > num1:
-    print("Second number is greater")
-else:
-    print("Both numbers are equal")
+# if num1 > num2:
+#     print("First number is greater")
+# elif num2 > num1:
+#     print("Second number is greater")
+# else:
+#     print("Both numbers are equal")
 
 
 #FINDING THE MAX MARKS OF THE STUDENTS
 
 
-print("Max student Score")
-student_score = [78, 65, 89, 86, 55, ]
-max_score = 0
-for score in student_score:
-    if score > max_score:
-        max_score  = score
-print(f"The highest score in the class is: {max_score}")
+# print("Max student Score")
+# student_score = [78, 65, 89, 86, 55, ]
+# max_score = 0
+# for score in student_score:
+#     if score > max_score:
+#         max_score  = score
+# print(f"The highest score in the class is: {max_score}")
 
 
 
-#ADDING UP DIGITS FROM 1 TO 100
+# #ADDING UP DIGITS FROM 1 TO 100
 
 
-print("Adding up digits from 1 to 100")
-total = 0
-for number in range(1, 101):
-    total += number
-    print(f"Adding {number} gives {total}")
-print(f"The total is of all the numbers from 1 to 100 is {total}")
+# print("Adding up digits from 1 to 100")
+# total = 0
+# for number in range(1, 101):
+#     total += number
+#     print(f"Adding {number} gives {total}")
+# print(f"The total is of all the numbers from 1 to 100 is {total}")
 
 
 # FizzBuzz Game
@@ -461,71 +461,97 @@ print(f"The total is of all the numbers from 1 to 100 is {total}")
 # HANGMAN 2 ( LETTER GUESSING GAME )
 
 
-import random
+# import random
 
-def load_words():
-    return ["python", "java", "javascript", "ruby", "swift"]
+# def load_words():
+#     return ["python", "java", "javascript", "ruby", "swift"]
 
-def hangman():
-    life = 3
-    word_list = load_words()
-    program_word = random.choice(word_list)
-    word_length = len(program_word)
+# def hangman():
+#     life = 3
+#     word_list = load_words()
+#     program_word = random.choice(word_list)
+#     word_length = len(program_word)
 
-    # Reveal some letters at random
-    num_to_reveal = max(1, word_length // 3)
-    revealed_indices = random.sample(range(word_length), num_to_reveal)
+#     # Reveal some letters at random
+#     num_to_reveal = max(1, word_length // 3)
+#     revealed_indices = random.sample(range(word_length), num_to_reveal)
 
-    word_display = []
-    revealed_letters = set()
-    player_guessed_letters = set()
+#     word_display = []
+#     revealed_letters = set()
+#     player_guessed_letters = set()
 
-    for i in range(word_length):
-        if i in revealed_indices:
-            word_display.append(program_word[i])
-            revealed_letters.add(program_word[i])
-        else:
-            word_display.append("_")
+#     for i in range(word_length):
+#         if i in revealed_indices:
+#             word_display.append(program_word[i])
+#             revealed_letters.add(program_word[i])
+#         else:
+#             word_display.append("_")
 
-    print("\n🎮 Welcome to the Hangman Game!")
-    print(f"The word has {word_length} letters.")
-    print("Some letters are already revealed to help you!")
-    print("Word:", " ".join(word_display))
+#     print("\n🎮 Welcome to the Hangman Game!")
+#     print(f"The word has {word_length} letters.")
+#     print("Some letters are already revealed to help you!")
+#     print("Word:", " ".join(word_display))
 
-    while life > 0 and "_" in word_display:
-        guess = input("Guess a letter: ").lower()
+#     while life > 0 and "_" in word_display:
+#         guess = input("Guess a letter: ").lower()
 
-        if not guess.isalpha() or len(guess) != 1:
-            print("⚠️ Please enter a single valid letter.")
-            continue
+#         if not guess.isalpha() or len(guess) != 1:
+#             print("⚠️ Please enter a single valid letter.")
+#             continue
 
-        if guess in player_guessed_letters:
-            print("⏳ You've already guessed that letter.")
-            continue
+#         if guess in player_guessed_letters:
+#             print("⏳ You've already guessed that letter.")
+#             continue
 
-        player_guessed_letters.add(guess)
+#         player_guessed_letters.add(guess)
 
-        if guess in program_word:
-            print("✅ Correct guess!")
-            for idx, char in enumerate(program_word):
-                if char == guess:
-                    word_display[idx] = guess
-        else:
-            life -= 1
-            print(f"❌ Wrong guess! Lives remaining: {life}")
+#         if guess in program_word:
+#             print("✅ Correct guess!")
+#             for idx, char in enumerate(program_word):
+#                 if char == guess:
+#                     word_display[idx] = guess
+#         else:
+#             life -= 1
+#             print(f"❌ Wrong guess! Lives remaining: {life}")
 
-        print("Word:", " ".join(word_display))
-        print("Guessed letters:", ", ".join(sorted(player_guessed_letters)))
+#         print("Word:", " ".join(word_display))
+#         print("Guessed letters:", ", ".join(sorted(player_guessed_letters)))
 
-    if "_" not in word_display:
-        print(f"\n🎉 You won! The word was: {program_word}")
-    else:
-        print(f"\n💀 You lost! The word was: {program_word}")
+#     if "_" not in word_display:
+#         print(f"\n🎉 You won! The word was: {program_word}")
+#     else:
+#         print(f"\n💀 You lost! The word was: {program_word}")
 
-# Main game loop
-while True:
-    hangman()
-    play_again = input("\nDo you want to play again? (yes/no): ").lower()
-    if play_again != "yes":
-        print("Thanks for playing! Goodbye!")
-        break
+# # Main game loop
+# while True:
+#     hangman()
+#     play_again = input("\nDo you want to play again? (yes/no): ").lower()
+#     if play_again != "yes":
+#         print("Thanks for playing! Goodbye!")
+#         break
+
+
+# PAINT THE WALL 
+import math
+
+def paint_the_wall():
+
+
+    print("Welcome to the Paint the Wall program!")
+    print("This program will help you to the calculate the amount of paint can needed to paint the wall taking into account that one can of paint covers 10 square meters of the wall assuming that one can of paint  containe 5 liters of paint.")
+
+    height = float(input("Enter the lenght of the wall in meters: "))
+    width = float(input("Enter the width of the wall in meters: "))
+
+    area = height * width
+    print(f"The area of the wall is {area} square meters.")
+
+    No_of_cans_needed = area / 10
+    print(f"You will need {No_of_cans_needed} cans of paint to paint the wall.")
+
+
+paint_the_wall()
+
+    
+                   
+
