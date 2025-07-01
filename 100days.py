@@ -532,25 +532,150 @@
 
 
 # PAINT THE WALL 
-import math
+# import math
 
-def paint_the_wall():
-
-
-    print("Welcome to the Paint the Wall program!")
-    print("This program will help you to the calculate the amount of paint can needed to paint the wall taking into account that one can of paint covers 10 square meters of the wall assuming that one can of paint  containe 5 liters of paint.")
-
-    height = float(input("Enter the lenght of the wall in meters: "))
-    width = float(input("Enter the width of the wall in meters: "))
-
-    area = height * width
-    print(f"The area of the wall is {area} square meters.")
-
-    No_of_cans_needed = area / 10
-    print(f"You will need {No_of_cans_needed} cans of paint to paint the wall.")
+# def paint_the_wall():
 
 
-paint_the_wall()
+#     print("Welcome to the Paint the Wall program!")
+#     print("This program will help you to the calculate the amount of paint can needed to paint the wall taking into account that one can of paint covers 10 square meters of the wall assuming that one can of paint  containe 5 liters of paint.")
+
+#     height = float(input("Enter the lenght of the wall in meters: "))
+#     width = float(input("Enter the width of the wall in meters: "))
+
+#     area = height * width
+#     print(f"The area of the wall is {area} square meters.")
+
+#     No_of_cans_needed = area // 10
+#     total_cans = math.ceil(No_of_cans_needed)
+#     print(f"You will need {total_cans} cans of paint to paint the wall.")
+
+
+# paint_the_wall()
+
+
+# PRIME NUMBER CHECKER 
+
+# import math
+
+# def prime_number_checker():
+#     print("Welcome to the Prime Number Checker!\nThis program will help you determine if a number is prime or not.")
+
+#     while True:
+#         try:
+#             Entered_number = int(input("Enter a number to check if it is prime: "))
+#         except ValueError:
+#             print("Invalid input. Please enter a valid integer.")
+#             continue  # Let user try again without quitting
+
+#         if Entered_number < 2:
+#             print(f"{Entered_number} is not a prime number.")
+#         else:
+#             for i in range(2, int(math.sqrt(Entered_number)) + 1):
+#                 if Entered_number % i == 0:
+#                     print(f"{Entered_number} is not a prime number.")
+#                     break
+#             else:
+#                 print(f"{Entered_number} is a prime number.")
+
+#         # Ask user if they want to check another number
+#         run_again = input("Do you want to check another number? (yes/no): ").strip().lower()
+#         if run_again != "yes":
+#             print("Thanks for using the Prime Number Checker! Goodbye!")
+#             break
+
+# prime_number_checker()
+
+# THE CAESAR CIPHER CODE 
+
+# Logo Display (Caesar Cipher)
+
+import string
+
+import pyfiglet
+
+logo = pyfiglet.figlet_format("Caesar Cipher", font="starwars")
+print(logo)
+
+def Caesar_cipher():
+
+    while True:
+        print("\nWelcome to the Caesar Cipher Program!")
+        print("This program will help you to encrypt or decrypt a message using the Caesar cipher technique.")
+
+        alphabets = list(string.ascii_lowercase)
+        numbers = list(string.digits)
+
+        try:
+            direction = input("Type 'encode' to encrypt your message or 'decode' to decrypt your message: ").lower()
+            if direction not in ['encode', 'decode']:
+                print("Invalid input. Please enter 'encode' or 'decode'.")
+                continue
+
+            text = input("Enter your message: ").lower()
+            shift = int(input("Enter the shift number: "))
+
+            if shift < 0:
+                print("Shift number cannot be negative. Please enter a positive shift number.")
+                continue 
+
+            shift_alpha = shift % 26  # Normalize shift
+            shift_digit = shift % 10  # Normalize shift for digits
+
+            Cipher_text = ""
+
+            for char in text:
+                                                               #EXMAPLE                                                            
+                if char in alphabets:                          #char = 'y', index = 24, shift = 3
+                                                               #Encoding:  (24 + 3) % 26 = 1 → 'b'
+                    index = alphabets.index(char)              #Decoding: (24 - 3) % 26 = 21 → 'v'          
+                    new_index = (index + shift_alpha) % 26 if direction == 'encode' else (index - shift_alpha) % 26
+                    Cipher_text += alphabets[new_index]               
+                    
+
+                elif char in numbers:
+                    index = numbers.index(char)
+                    new_index = (index + shift_digit) % 10 if direction == 'encode' else (index - shift_digit) % 10
+                    Cipher_text += numbers[new_index]
+
+                else:
+                    Cipher_text += char
+                
+
+            print(f"The {direction}d message is: {Cipher_text}")
+
+        except ValueError:
+            print("Invalid input. Please enter a valid shift number.")
+            continue
+
+        run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
+        if run_again != "yes":
+            print("Thanks for using the Caesar Cipher Program! Goodbye!")
+            break
+
+
+Caesar_cipher()
+
+
+
+
+        
+
+
+
+    
+
+
+   
+    
+
+    
+        
+
+
+
+
+
 
     
                    
