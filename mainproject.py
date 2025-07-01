@@ -592,7 +592,6 @@ while True:
 
 # THE CAESAR CIPHER PROJECT
  
- 
 import string
 import pyfiglet
 
