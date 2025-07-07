@@ -590,71 +590,341 @@
 
 # Logo Display (Caesar Cipher)
 
-import string
+# import string
 
-import pyfiglet
+# import pyfiglet
 
-logo = pyfiglet.figlet_format("Caesar Cipher", font="starwars")
-print(logo)
+# logo = pyfiglet.figlet_format("Caesar Cipher", font="starwars")
+# print(logo)
 
-def Caesar_cipher():
+# def Caesar_cipher():
 
-    while True:
-        print("\nWelcome to the Caesar Cipher Program!")
-        print("This program will help you to encrypt or decrypt a message using the Caesar cipher technique.")
+#     while True:
+#         print("\nWelcome to the Caesar Cipher Program!")
+#         print("This program will help you to encrypt or decrypt a message using the Caesar cipher technique.")
 
-        alphabets = list(string.ascii_lowercase)
-        numbers = list(string.digits)
+#         alphabets = list(string.ascii_lowercase)
+#         numbers = list(string.digits)
 
-        try:
-            direction = input("Type 'encode' to encrypt your message or 'decode' to decrypt your message: ").lower()
-            if direction not in ['encode', 'decode']:
-                print("Invalid input. Please enter 'encode' or 'decode'.")
-                continue
+#         try:
+#             direction = input("Type 'encode' to encrypt your message or 'decode' to decrypt your message: ").lower()
+#             if direction not in ['encode', 'decode']:
+#                 print("Invalid input. Please enter 'encode' or 'decode'.")
+#                 continue
 
-            text = input("Enter your message: ").lower()
-            shift = int(input("Enter the shift number: "))
+#             text = input("Enter your message: ").lower()
+#             shift = int(input("Enter the shift number: "))
 
-            if shift < 0:
-                print("Shift number cannot be negative. Please enter a positive shift number.")
-                continue 
+#             if shift < 0:
+#                 print("Shift number cannot be negative. Please enter a positive shift number.")
+#                 continue 
 
-            shift_alpha = shift % 26  # Normalize shift
-            shift_digit = shift % 10  # Normalize shift for digits
+#             shift_alpha = shift % 26  # Normalize shift
+#             shift_digit = shift % 10  # Normalize shift for digits
 
-            Cipher_text = ""
+#             Cipher_text = ""
 
-            for char in text:
-                                                               #EXMAPLE                                                            
-                if char in alphabets:                          #char = 'y', index = 24, shift = 3
-                                                               #Encoding:  (24 + 3) % 26 = 1 → 'b'
-                    index = alphabets.index(char)              #Decoding: (24 - 3) % 26 = 21 → 'v'          
-                    new_index = (index + shift_alpha) % 26 if direction == 'encode' else (index - shift_alpha) % 26
-                    Cipher_text += alphabets[new_index]               
+#             for char in text:
+#                                                                #EXMAPLE                                                            
+#                 if char in alphabets:                          #char = 'y', index = 24, shift = 3
+#                                                                #Encoding:  (24 + 3) % 26 = 1 → 'b'
+#                     index = alphabets.index(char)              #Decoding: (24 - 3) % 26 = 21 → 'v'          
+#                     new_index = (index + shift_alpha) % 26 if direction == 'encode' else (index - shift_alpha) % 26
+#                     Cipher_text += alphabets[new_index]               
                     
 
-                elif char in numbers:
-                    index = numbers.index(char)
-                    new_index = (index + shift_digit) % 10 if direction == 'encode' else (index - shift_digit) % 10
-                    Cipher_text += numbers[new_index]
+#                 elif char in numbers:
+#                     index = numbers.index(char)
+#                     new_index = (index + shift_digit) % 10 if direction == 'encode' else (index - shift_digit) % 10
+#                     Cipher_text += numbers[new_index]
 
-                else:
-                    Cipher_text += char
+#                 else:
+#                     Cipher_text += char
                 
 
-            print(f"The {direction}d message is: {Cipher_text}")
+#             print(f"The {direction}d message is: {Cipher_text}")
 
+#         except ValueError:
+#             print("Invalid input. Please enter a valid shift number.")
+#             continue
+
+#         run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
+#         if run_again != "yes":
+#             print("Thanks for using the Caesar Cipher Program! Goodbye!")
+#             break
+
+
+# Caesar_cipher()
+
+
+# Day 9 - Dictionaries , Nesting and The Secrete Auction Program
+
+# The Secret Auction Program
+
+def secret_auction():
+
+    print("Welcome to the Secret Auction Program!")
+    print("This program will help you to conduct a secret auction.")
+
+    bids = {}
+
+    while True:
+        name = input("Enter the name of the bidder: ")
+
+        if name in bids:
+             print("This name has already been used. Please enter a different name.")
+             continue
+
+        try:
+          
+          bid_amount = float(input("Enter the bid amount: $")) 
         except ValueError:
-            print("Invalid input. Please enter a valid shift number.")
-            continue
 
-        run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
-        if run_again != "yes":
-            print("Thanks for using the Caesar Cipher Program! Goodbye!")
-            break
+            print("Invalid input. Please enter a valid number for the bid amount.")
+            continue 
+
+        bids[name] = bid_amount 
+
+        another_bidder = input("Is there another bidder? (yes/no): ").strip().lower()
+        if another_bidder != "yes":
+            print("No more bidders. Ending the auction.")
+            break                      
+
+    if bids:
+        highest_bidder = max(bids, key=bids.get)
+        highest_bid = bids[highest_bidder]
+        print(f"The highest bidder is {highest_bidder} with a bid of ${highest_bid:.2f}.")
+
+while True:
+    secret_auction()
+
+    run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
+    if run_again != "yes":
+          print("Thanks for using the Secret Auction Program! Goodbye!")
+          break
 
 
-Caesar_cipher()
+# loops in dictionaries
+
+
+# programming_languages = {
+#     "python": "A language that lets you work quickly and integrate systems more effectively.",
+#     "Java": "A high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
+#     "JavaScript": "A programming language that conforms to the ECMAScript specification, primarily",
+#     "loops": ["While Loop", "For Loop", "Do While Loop"],
+# } 
+# for key in programming_languages:
+#     print(key)         
+#     print(programming_languages[key])
+
+
+
+#  The Grading Criteria Program
+
+# def grading_criteria():
+#     print("Welcome to the grading criteria!")
+#     print("This program will help you determine the grade based on the marks entered.")
+
+#     students = {}
+
+#     # Input phase
+#     while True:
+#         name = input("\nEnter the name of the student: ").strip()
+
+#         if name in students:
+#             print("This name has already been used. Please enter a different name.")
+#             continue
+
+#         try:
+#             grade = int(input("Enter the marks of the student (0-100): "))
+#             if not (0 <= grade <= 100):
+#                 print("Invalid marks. Please enter a value between 0 and 100.")
+#                 continue
+#         except ValueError:
+#             print("Invalid input. Please enter a valid number.")
+#             continue
+
+#         students[name] = grade
+
+#         # Strict validation for yes/no
+#         while True:
+#             another = input("Do you want to enter another student? (yes/no): ").strip().lower()
+#             if another in ("yes", "no"):
+#                 break
+#             print("Invalid input. Please enter 'yes' or 'no'.")
+
+#         if another == "no":
+#             break
+
+#     # Grade assignment
+#     print("\n--- Grade Results ---")
+#     for student, grade in students.items():
+#         if grade >= 90:
+#             letter = 'A'
+#         elif grade >= 80:
+#             letter = 'B'
+#         elif grade >= 70:
+#             letter = 'C'
+#         elif grade >= 60:
+#             letter = 'D'
+#         elif grade >= 50:
+#             letter = 'E'
+#         else:
+#             letter = 'F'
+
+#         print(f"{student} has received grade {letter}.")
+
+#     # Optional: Personal check
+#     while True:
+#         check = input("\nDo you want to check the marks of a specific student? (yes/no): ").strip().lower()
+
+#         if check != 'yes' and check != "no":
+#             print("Invalid input. Please enter 'yes' or 'no'.")
+#             continue
+
+#         if check == "no":
+#             break
+
+#         name_to_check = input("Enter the name of the student to check: ").strip()
+#         if name_to_check in students:
+#             print(f"{name_to_check} scored {students[name_to_check]} marks.")
+#         else:
+#             print("No such student found.")
+
+# # Loop to run program multiple times
+# while True:
+#     grading_criteria()
+#     again = input("\nDo you want to run the program again? (yes/no): ").strip().lower()
+#     if again != "yes":
+#         print("Thanks for using the grading criteria program! Goodbye!")
+#         break
+
+
+# -------------------------------
+# 📝 DIFFERENT METHODS OF NESTING DICTIONARIES
+# -------------------------------
+
+# ✅ 1. Simple Dictionary
+
+# capitals = {
+#     "France": "Paris",
+#     "Germany": "Berlin",
+# }
+
+# ✅ 2. Nesting a List in a Dictionary
+
+# travel_log_simple = {
+#     "France": ["Paris", "Lille", "Dijon"],
+#     "Germany": ["Berlin", "Hamburg", "Stuttgart"],
+# }
+
+# ✅ 3. Nesting a Dictionary in a Dictionary
+
+travel_log_nested_dict = {
+    "Countries": {
+        "France": ["Paris", {"Friends": "India"}, {"Enemy": "Pakistan"}, "Lille", "Dijon"],
+        "Germany": ["Berlin", "Hamburg", "Stuttgart"]
+    }
+}
+
+# Adding a new country (Italy) to the nested dictionary
+
+# travel_log_nested_dict["Countries"]["Italy"] = ["Rome", "Milan", "Venice"]
+
+# Updating Germany's entry to include more details
+
+# travel_log_nested_dict["Countries"]["Germany"] = {
+#     "city_visited": ["Berlin", "Hamburg", "Stuttgart"],
+#     "Friends": ["India"]
+# }
+
+# Counting the number of cities visited in Italy
+
+# visit_count = len(travel_log_nested_dict["Countries"]["Italy"])
+
+# Adding visit count to Italy's entry
+
+# travel_log_nested_dict["Countries"]["Italy"] = {
+#     "city_visited": travel_log_nested_dict["Countries"]["Italy"],
+#     "visit_count": visit_count
+# }
+
+# Accessing and modifying France's entry
+
+# cities_in_france = travel_log_nested_dict["Countries"]["France"]
+# travel_log_nested_dict["Countries"]["France"] = {
+#     "city_visited": cities_in_france
+# }
+
+#  ✅ Printing Nested Dictionary
+
+# print("\n🌍 Travel Log (Nested Dictionary):")
+# print(travel_log_nested_dict)
+
+
+# -------------------------------
+# ✅ 4. Mutating a Dictionary Using a Function
+# -------------------------------
+
+# List of dictionaries
+
+travels = [
+    {
+        "Country": "France",
+        "visits": 12,
+        "Cities": ["Paris", "Lille", "Dijon"]
+    },
+    {
+        "Country": "Germany",
+        "visits": 5,
+        "Cities": ["Berlin", "Hamburg", "Stuttgart"]
+    }
+]
+
+# Function to add a new country
+
+def add_new_country(country_visited, times_visited, cities_visited):
+    """
+    Adds a new country to the travels list.
+
+    Parameters:
+    country_visited (str): Name of the country.
+    times_visited (int): Number of times the country was visited.
+    cities_visited (list): List of cities visited in the country.
+    """
+    new_country = {
+        "Country": country_visited,
+        "visits": times_visited,
+        "Cities": cities_visited
+    }
+    travels.append(new_country)
+
+# Adding Italy
+add_new_country("Italy", 3, ["Rome", "Milan", "Venice"])
+
+# ✅ Printing Updated Travels List
+print("\n🗺️ Updated Travels List:")
+for country in travels:
+    print(country)
+
+
+
+
+       
+
+           
+
+
+
+          
+                        
+
+                 
+                 
+
+
+    
+
 
 
 
@@ -679,4 +949,3 @@ Caesar_cipher()
 
     
                    
-
