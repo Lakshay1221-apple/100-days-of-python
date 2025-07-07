@@ -20,6 +20,8 @@ Each day I learn something new or build something fun. Here’s a glimpse:
 | 6   | Random & Lists    | Function and Kernals | Reborg work Test , Complete Banking System |
 | 7   | 🎮 Hangman Game!  | First real project – guess the word letter by letter! | The Hangman Game |
 | 8   | Function Parameters and Caesar Cipther | Function Parameters | Paint wall , Caesar Cipher Code 
+| 9   | Dictionaries and Nesting | Dict, Nesting Dict | The Secret Auction Program, Grading Calculator
+
 
 > 📌 More coming every day — stay tuned!
 
