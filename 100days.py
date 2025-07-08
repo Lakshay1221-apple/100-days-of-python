@@ -661,47 +661,47 @@
 
 # The Secret Auction Program
 
-def secret_auction():
+# def secret_auction():
 
-    print("Welcome to the Secret Auction Program!")
-    print("This program will help you to conduct a secret auction.")
+#     print("Welcome to the Secret Auction Program!")
+#     print("This program will help you to conduct a secret auction.")
 
-    bids = {}
+#     bids = {}
 
-    while True:
-        name = input("Enter the name of the bidder: ")
+#     while True:
+#         name = input("Enter the name of the bidder: ")
 
-        if name in bids:
-             print("This name has already been used. Please enter a different name.")
-             continue
+#         if name in bids:
+#              print("This name has already been used. Please enter a different name.")
+#              continue
 
-        try:
+#         try:
           
-          bid_amount = float(input("Enter the bid amount: $")) 
-        except ValueError:
+#           bid_amount = float(input("Enter the bid amount: $")) 
+#         except ValueError:
 
-            print("Invalid input. Please enter a valid number for the bid amount.")
-            continue 
+#             print("Invalid input. Please enter a valid number for the bid amount.")
+#             continue 
 
-        bids[name] = bid_amount 
+#         bids[name] = bid_amount 
 
-        another_bidder = input("Is there another bidder? (yes/no): ").strip().lower()
-        if another_bidder != "yes":
-            print("No more bidders. Ending the auction.")
-            break                      
+#         another_bidder = input("Is there another bidder? (yes/no): ").strip().lower()
+#         if another_bidder != "yes":
+#             print("No more bidders. Ending the auction.")
+#             break                      
 
-    if bids:
-        highest_bidder = max(bids, key=bids.get)
-        highest_bid = bids[highest_bidder]
-        print(f"The highest bidder is {highest_bidder} with a bid of ${highest_bid:.2f}.")
+#     if bids:
+#         highest_bidder = max(bids, key=bids.get)
+#         highest_bid = bids[highest_bidder]
+#         print(f"The highest bidder is {highest_bidder} with a bid of ${highest_bid:.2f}.")
 
-while True:
-    secret_auction()
+# while True:
+#     secret_auction()
 
-    run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
-    if run_again != "yes":
-          print("Thanks for using the Secret Auction Program! Goodbye!")
-          break
+#     run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
+#     if run_again != "yes":
+#           print("Thanks for using the Secret Auction Program! Goodbye!")
+#           break
 
 
 # loops in dictionaries
@@ -820,12 +820,12 @@ while True:
 
 # ✅ 3. Nesting a Dictionary in a Dictionary
 
-travel_log_nested_dict = {
-    "Countries": {
-        "France": ["Paris", {"Friends": "India"}, {"Enemy": "Pakistan"}, "Lille", "Dijon"],
-        "Germany": ["Berlin", "Hamburg", "Stuttgart"]
-    }
-}
+# travel_log_nested_dict = {
+#     "Countries": {
+#         "France": ["Paris", {"Friends": "India"}, {"Enemy": "Pakistan"}, "Lille", "Dijon"],
+#         "Germany": ["Berlin", "Hamburg", "Stuttgart"]
+#     }
+# }
 
 # Adding a new country (Italy) to the nested dictionary
 
@@ -868,49 +868,157 @@ travel_log_nested_dict = {
 
 # List of dictionaries
 
-travels = [
-    {
-        "Country": "France",
-        "visits": 12,
-        "Cities": ["Paris", "Lille", "Dijon"]
-    },
-    {
-        "Country": "Germany",
-        "visits": 5,
-        "Cities": ["Berlin", "Hamburg", "Stuttgart"]
+# travels = [
+#     {
+#         "Country": "France",
+#         "visits": 12,
+#         "Cities": ["Paris", "Lille", "Dijon"]
+#     },
+#     {
+#         "Country": "Germany",
+#         "visits": 5,
+#         "Cities": ["Berlin", "Hamburg", "Stuttgart"]
+#     }
+# ]
+
+# # Function to add a new country
+
+# def add_new_country(country_visited, times_visited, cities_visited):
+#     """
+#     Adds a new country to the travels list.
+
+#     Parameters:
+#     country_visited (str): Name of the country.
+#     times_visited (int): Number of times the country was visited.
+#     cities_visited (list): List of cities visited in the country.
+#     """
+#     new_country = {
+#         "Country": country_visited,
+#         "visits": times_visited,
+#         "Cities": cities_visited
+#     }
+#     travels.append(new_country)
+
+# # Adding Italy
+# add_new_country("Italy", 3, ["Rome", "Milan", "Venice"])
+
+# # ✅ Printing Updated Travels List
+# print("\n🗺️ Updated Travels List:")
+# for country in travels:
+#     print(country)
+
+#---------------
+# THE CALCULATOR
+#---------------
+def calculator():
+    """A simple command-line calculator with previous result support."""
+    print("Welcome to the Calculator")
+    print("This program helps you perform basic arithmetic operations.")
+
+    operations = {
+        "1": ("Addition", "+"),
+        "2": ("Subtraction", "-"),
+        "3": ("Multiplication", "*"),
+        "4": ("Division", "/"),
+        "5": ("Remainder", "%"),
+        "6": ("Power of", "**"),
+        "7": ("Exit", None)
     }
-]
 
-# Function to add a new country
+    previous_result = None  # To store result of previous operation
 
-def add_new_country(country_visited, times_visited, cities_visited):
-    """
-    Adds a new country to the travels list.
+    while True:
+        print("\nAvailable operations:")
+        for key, (name, _) in operations.items():
+            print(f"{key}. {name}")
 
-    Parameters:
-    country_visited (str): Name of the country.
-    times_visited (int): Number of times the country was visited.
-    cities_visited (list): List of cities visited in the country.
-    """
-    new_country = {
-        "Country": country_visited,
-        "visits": times_visited,
-        "Cities": cities_visited
-    }
-    travels.append(new_country)
+        choice = input("Enter the choice (1-7) for the operation you want to use: ")
 
-# Adding Italy
-add_new_country("Italy", 3, ["Rome", "Milan", "Venice"])
+        if choice == '7':
+            print("Thank you for using the calculator. Goodbye!")
+            break
 
-# ✅ Printing Updated Travels List
-print("\n🗺️ Updated Travels List:")
-for country in travels:
-    print(country)
+        if choice not in operations:
+            print("❌ Invalid choice. Please enter a number between 1 and 7.")
+            continue
+
+        try:
+            # Ask if user wants to use previous result or enter new inputs
+            if previous_result is not None:
+                reuse = input("Do you want to use the previous result? (yes/no): ").strip().lower()
+                if reuse == "yes":
+                    num1 = previous_result
+                    print(f"First number is set to previous result: {num1}")
+                else:
+                    num1 = float(input("Enter the first number: "))
+            else:
+                num1 = float(input("Enter the first number: "))
+
+            num2 = float(input("Enter the second number: "))
+
+        except ValueError:
+            print("❌ Invalid input. Please enter numeric values.")
+            continue
+
+        op_name, op_symbol = operations[choice]
+
+        try:
+            if choice == '1':
+                result = num1 + num2
+            elif choice == '2':
+                result = num1 - num2
+            elif choice == '3':
+                result = num1 * num2
+            elif choice == '4':
+                if num2 == 0:
+                    raise ZeroDivisionError("division by zero")
+                result = num1 / num2
+            elif choice == '5':
+                if num2 == 0:
+                    raise ZeroDivisionError("modulo by zero")
+                result = num1 % num2
+            elif choice == '6':
+                result = num1 ** num2
+
+            print(f"✅ Result: {num1} {op_symbol} {num2} = {result}")
+
+            # Save result for possible reuse
+            previous_result = result
+
+            another_oper = input("\nDo you want to perform another operation7? (yes/no): ").strip().lower()
+            if another_oper != "yes":
+                print("Thank you for using the calculator. Goodbye!")
+                break
+
+        except ZeroDivisionError as e:
+            print(f"❌ Error: Cannot perform {op_name.lower()} ({e}).")
+            continue
 
 
+# Run the calculator
+calculator()
 
 
-       
+#-------------
+# Title Function
+#-------------
+
+
+# name = "lakshay raj"
+# print(name.title())
+        
+
+def format_name(f_name, l_name):
+    #This type of strings are called dockstrings they are multiline strings and all are integrated in one line.
+    """Format the first and last name to title case."""    
+    if f_name == "" or l_name == "":
+        return "You didnt provide valid inputs"
+    formatted_f_name = f_name.title()
+    formatted_l_name = l_name.title()
+    return f"{formatted_f_name} {formatted_l_name}"     
+
+print(format_name("lakshay", "raj"))
+
 
            
 
