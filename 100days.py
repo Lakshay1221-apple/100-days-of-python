@@ -1021,15 +1021,142 @@
 
 
 
+#-------------
+# Scope and Number Guessing Game
+#-------------
 
 
 
+#----------Scope--------
+
+# enemies = 1   # This enemy variable is outside the increase enemy function, thus called  a #Global Variable
+
+# def increase_enemies():
+#     enemies = 2     # This enemy variable is inside the increase enemy function, thus it is different from the enemy variable outside. It is a #Local Variable
+#     print(f"enemies inside function: {enemies}")   #This is only considere the enemy variable which is part of the function
+
+# increase_enemies()
+# print(f"enemies outside function: {enemies}")  #This will call the enemy variable which is outside the function cause the other is already called with the function
+
+# Name space = Anything you give name to is called name space
+
+
+#------Modifying Global Variable
+
+
+# enemies = 1  # global variable
+
+# def increase_enemies():
+#     # global enemies  # pass as parameter
+#     # enemies += 2  # modify the local copy
+#     print(f"enemies inside function: {enemies}")
+#     return enemies + 1 # return the new value
+
+# # call the function and assign the result back to global enemies
+# enemies = increase_enemies#(enemies)
+
+# print(f"enemies outside function: {enemies}")
+
+
+
+
+
+#----------Local Scope--------
+
+# def drink_portion():
+#     portion_strenth = 2
+#     print(f"The portion strenth is {portion_strenth}")
+
+# drink_portion()
+# print(f"The portion strenth is {portion_strenth}") #this will give an error because ther is no seperate portion_strenght variable
           
                         
+#----------Global Scope--------
 
-                 
-                 
+# player_health = 10  # This is a global variable
 
+# def game():       
+#     def drink_portion():
+#         portion_strength = 2
+#         print(f"The portion strength is {portion_strength}")
+
+#     # drink_portion()  # Call drink_portion() inside game
+
+# game()  # Call the outer function
+# drink_portion()
+# print(f"The player health is {player_health}")
+
+
+#--------There is no Block Scope-------
+
+
+# game_level = 3
+
+# def horror_game():
+#        enemies = ["Skeleton", "Zombie", "Alien"]
+#        if game_level < 5:
+#               new_enemy = enemies[0] # the value is assigned to the new_enemy variable but it wont give output because we'll have to call new_enemy with in the def 
+            #   print(new_enemy)
+       
+
+# print(new_enemy) # As this print statement is outside the def it will show an error 
+# horror_game() #This will give the final correct output 
+
+
+#-----THE NUMBER GUESSING GAME
+
+import random
+
+def number_guessing_game():
+    print("Welcome to the Number Guessing Game!")
+
+    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+    if difficulty == 'easy':
+        attempts = 10
+    else:
+        attempts = 3
+    
+    print(f"As you choosed difficulty = {difficulty}, You have {attempts} attempts to guess the number.")
+    
+    computer = random.randint(1, 100)
+    print("🎉 Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
+    print(f"You have {attempts} attempts to guess the number.")
+
+    while attempts > 0:
+        try:
+            user = int(input("Make a guess: "))         
+        except ValueError:                                 
+            print("❌ Invalid input. Please enter a valid integer.")
+            continue  # Ask again instead of breaking
+
+        if user < computer:
+            print("🔼 Too low.")
+        elif user > computer:
+            print("🔽 Too high.")
+        else:
+            print(f"✅ Correct! You guessed the number in {10 - attempts + 1} attempts.")
+            break
+
+        attempts -= 1
+        if attempts > 0:
+            print(f"🔄 You have {attempts} attempts remaining.")
+        else:
+            print(f"❌ You've run out of attempts. The number was {computer}.")
+
+while True:
+    number_guessing_game()
+    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+    if play_again != 'yes':
+        print("👋 Thanks for playing! Goodbye!")
+        break
+
+
+
+    
+
+
+    
 
     
 

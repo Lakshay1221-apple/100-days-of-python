@@ -1,190 +1,295 @@
-# NUMBER GUESSING GAME
-# This is a simple number guessing game where the computer tries to guess a number the user is thinking of.
+#--------------
+# THE NUMBER GUESSING GAME
+#--------------
 
-# def play_game():
-#     low = 1          # Starting lower bound
-#     high = 100       # Starting upper bound
+def play_game():
+    # Define the range of numbers the user is thinking of
+    low = 1
+    high = 100
 
-#     print("Think of a number between", low, "and", high)
-#     input("Press Enter when you're ready...")
+    print("Think of a number between 1 to 100")  # Prompt user to think of a number
+    input("Press Enter when you're ready...")    # Wait for the user to get ready
 
-#     guess_count = 0  # Initialize guess counter
+    guess_count = 0  # Initialize the count of guesses
 
-#     while True:
-#         guess = (low + high) // 2  # Guess the middle of the range
-#         guess_count += 1  # Increment the guess count with each guess
-#         print("Is your number", guess, "?")
-        
-#         feedback = input("Enter 'low' if your number is higher, 'high' if it's lower, or 'correct': ")
+    # Start guessing loop
+    while True:
+        guess = (low + high) // 2  # Computer guesses the middle of the current range
+        guess_count += 1  # Increment guess counter
+        print(f"Is your number {guess}?")  # Ask user if this is their number
 
-#         if feedback == "low":
-#             low = guess + 1  # If the number is higher, adjust the lower bound
-#         elif feedback == "high":
-#             high = guess - 1  # If the number is lower, adjust the upper bound
-#         elif feedback == "correct":
-#             print(f"Hooray! I guessed it in {guess_count} guesses!")  # Success message with guess count
-#             break  # End the loop when the number is guessed correctly
-#         else:
-#             print("Invalid input. Please enter 'low', 'high', or 'correct'.")
+        # Get feedback from the user about the guess
+        feedback = input(
+            "Enter 'low' if your number is higher, 'high' if your number is lower, "
+            "or 'correct' if the guess is right: "
+        ).strip().lower()
 
-# # Main loop to ask if the user wants to play again
-# while True:
-#     play_game()  # Start a new game
-    
-#     play_again = input("Do you want to play again? (yes/no): ").lower()  # Ask if they want to play again
-#     if play_again != "yes":
-#         print("Thanks for playing! Goodbye!")  # End the game
-#         break
+        # Adjust range based on feedback
+        if feedback == "low":
+            low = guess + 1  # Move the lower bound up since number is higher
 
+        elif feedback == "high":
+            high = guess - 1  # Move the upper bound down since number is lower
 
-# Atm pin
+        elif feedback == "correct":
+            # Computer guessed correctly
+            print(f"Hooray! I guessed it in {guess_count} guesses!")
+            break  # Exit the loop
 
-# import re
+        else:
+            # Handle invalid input
+            print("Invalid input, please enter 'low', 'high', or 'correct'.")
 
-# print("WELCOME TO THE APEX ATM")
-
-# name = input("Enter your name: ").upper()
-
-# pattern = r"^\d{10}$"
-# pin_pat = r"^\d{4}$"
-
-# print("Your withdraw limit is up to 10K")
-
-# while True:
-#     answer = input("Are you a customer of this bank? (yes/no): ").strip().lower()
-
-#     if answer == "no":
-#         print("You will be charged $20.")
-#     elif answer == "yes":
-#         print("Thank you for being our customer!")
-#     else:
-#         print("Please answer with 'yes' or 'no'.")
-#         continue  # Ask the question again
-
-#     card_num = input("Enter your card number (10 digits): ")
-#     if not re.match(pattern, card_num):
-#         print("Invalid card number: must be exactly 10 digits.")
-#         continue
-
-#     while True:
-#         pin = input("Enter your 4-digit ATM PIN: ")
-#         if not re.match(pin_pat, pin):
-#             print("Invalid PIN. Please enter exactly 4 digits.")
-#             continue
-#         break
-#     while True:
-#         try:
-#             cash = int(input("Enter the amount you want to withdraw (max $10000): "))
-#             if cash > 10000:
-#                 print("You can only withdraw up to $10,000.")
-#                 continue
-#             elif cash <= 0:
-#                 print("Please enter a positive amount.")
-#                 continue
-#             break
-#         except ValueError:
-#             print("Invalid input. Please enter a numeric amount.")
-#             continue
-
-#     print("Transaction successful!")
-#     print("You can collect your card.")
-    # print("Thank you for visiting,", name)
-    # break
+# Loop to allow multiple games
+while True:
+    play_game()  # Start the game
+    # Ask the user if they want to play again
+    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+    if play_again != 'yes':
+        print("Thanks for playing! Goodbye!")  # Exit message
+        break  # Exit the loop if user doesn't want to play again
 
 
-#complete Banking system:
+#-----------------
+# THE ATM MACHINE
+#-----------------
 
-# import re
+def atm_machine():
+    # Import regex module for pattern matching
+    import re
 
-# Bank_data = {}
+    # Welcome message and transaction limit info
+    print("WELCOME TO THE APEX ATM")
+    trans_limit = 10000  # Set transaction limit
+    print("Your Transaction limit is up to $10,000")
 
-# pattern = r"^\d{10}$"
-# pin_pat = r"^\d{4}$"
+    # Ask user for their name and convert it to uppercase
+    name = input("Please enter your name: ").upper()
 
-# def register():
-#     username = input("Enter your name: ").upper()
-#     card = input("Enter your 10-digit card number: ")
-#     if not re.match(pattern, card) or card in Bank_data:
-#         print("Invalid or already used card number.")
-#         return
+    # Regex patterns for validating card number and PIN
+    card_numpat = r"^\d{10}$"  # Card number must be exactly 10 digits
+    pin_pat = r"^\d{4}$"       # PIN must be exactly 4 digits
 
-#     pin = input("Enter your 4-digit PIN: ")
-#     if not re.match(pin_pat, pin):
-#         print("Invalid PIN format.")
-#         return
+    # Loop to validate customer and card details
+    while True:
+        # Ask if the user is a customer of the bank
+        bank_cus = input("Are you a customer of our bank? (yes/no): ").strip().lower()
 
-#     Bank_data[card] = {
-#         "name": username,
-#         "pin": pin,
-#         "balance": 0
-#     }
+        if bank_cus == "no":
+            # Inform about charges for non-customers
+            print("You will be charged $3 for your withdrawal.")
+        else:
+            # No charges for bank customers
+            print("There will be no charges over your withdrawal.")
 
-#     print(f"Account created successfully for {username}.")
+        # Prompt user for their 10-digit card number
+        card_num = input("Enter your 10 digit card number: ")
+        # Validate card number with regex
+        if not re.match(card_numpat, card_num):
+            print("Invalid Card Number, Card Number must be of 10 digits")
+            continue  # Retry if invalid
 
-# def login():
-#     card = input("Enter your card number: ")
-#     pin = input("Enter your PIN: ")
+        # Prompt user for their 4-digit ATM PIN
+        Atm_pin = input("Enter your 4 digit ATM Pin: ")
+        # Validate ATM PIN with regex
+        if not re.match(pin_pat, Atm_pin):
+            print("Invalid ATM Pin, Please enter your ATM Pin again:")
+            continue  # Retry if invalid
 
-#     user = Bank_data.get(card)
-#     if user and user["pin"] == pin:
-#         print(f"Welcome {user['name']}!")
-#         banking_menu(card)
-#     else:
-#         print("Invalid card number or PIN.")
+        break  # Exit loop if card details are valid
 
-# def banking_menu(card):
-#     user = Bank_data[card]
-#     while True:
-#         print("\n1. Check Balance\n2. Deposit\n3. Withdraw\n4. Logout")
-#         choice = input("Choose an option: ")
+    # Loop to handle amount withdrawal
+    while True:
+        try:
+            # Prompt user to enter withdrawal amount
+            amount = int(input("Please enter the amount you want to withdraw: "))
 
-#         if choice == "1":
-#             print(f"Your balance is ₹{user['balance']}")
-#         elif choice == "2":
-#             try:
-#                 amt = int(input("Enter the amount you want to deposit: "))
-#                 if amt <= 0:
-#                     print("Please enter a positive amount.")
-#                 else:
-#                     user["balance"] += amt
-#                     print(f"Amount deposited successfully. Your current balance is ₹{user['balance']}")
-#             except ValueError:
-#                 print("Please enter a valid number.")
-#         elif choice == "3":
-#             try:
-#                 amt = int(input("Enter amount to withdraw (Limit: ₹10,000): "))
-#                 if amt <= 0:
-#                     print("Enter a valid amount.")
-#                 elif amt > 10000:
-#                     print("Limit exceeded.")
-#                 elif amt > user["balance"]:
-#                     print("Insufficient balance.")
-#                 else:
-#                     user["balance"] -= amt
-#                     print(f"Withdrawal successful. Remaining balance: ₹{user['balance']}")
-#             except ValueError:
-#                 print("Please enter a valid number.")
-#         elif choice == "4":
-#             print("Logged out.")
-#             break
-#         else:
-#             print("Invalid choice.")
+            if amount > trans_limit:
+                # Reject if amount exceeds transaction limit
+                print("The amount is greater than the transaction limit of 10k")
+                continue  # Retry
+            elif amount <= 0:
+                # Reject negative or zero amounts
+                print("Please enter a positive amount")
+                continue  # Retry
+            else:
+                # Successful transaction
+                print("Your Transaction is completed, Please collect your cash and card")
+                break  # Exit loop
+        except ValueError:
+            # Handle invalid (non-numeric) input
+            print("Invalid Amount, Please enter valid digits")
+            continue  # Retry
 
-# # Main program
-# while True:
-#     print("\n--- Welcome To Apex Bank ---")
-#     print("1. Registration\n2. Login\n3. Exit")
-#     option = input("Choose an option: ")
+# Outer loop to allow multiple transactions
+while True:
+    atm_machine()  # Run the ATM process
 
-#     if option == "1":
-#         register()
-#     elif option == "2":
-#         login()
-#     elif option == "3":
-#         print("Thank you for visiting Apex Bank!")
-#         break
-#     else:
-#         print("Invalid choice.")
+    # Ask user if they want another transaction
+    second_trans = input("Do you want to make a second Transaction (yes/no): ").strip().lower()
+    if second_trans == "yes":
+        # Start another transaction
+        continue
+    else:
+        # Exit if user doesn't want to continue
+        print("Thanks for visiting, Have a Good Day!")
+        break
+
+
+import re  # Import regex module for validating card numbers and PINs
+
+# Global dictionary to store bank data (card number as key, user info as value)
+Bank_data = {}
+
+# Regex patterns for validation
+card_numpat = r"^\d{10}$"  # Card number must be exactly 10 digits
+pin_pat = r"^\d{4}$"       # PIN must be exactly 4 digits
+
+
+def register():
+    """Handles the user registration process."""
+    username = input("Enter Your User Name: ").upper()
+
+    # --- Card Number Input and Validation ---
+    card = input("Enter your 10-digit card number: ")
+    # Check if card number is valid and not already in use
+    if not re.match(card_numpat, card) or card in Bank_data:
+        print("❌ Invalid or already used card number. Please try again.")
+        return  # Exit the function if card is invalid
+
+    # --- PIN Input and Validation ---
+    pin = input("Enter your 4-digit card PIN: ")
+    if not re.match(pin_pat, pin):
+        print("❌ Invalid PIN format. It must be 4 digits. Please try again.")
+        return  # Exit the function if PIN is invalid
+
+    # --- Store new user data ---
+    Bank_data[card] = {
+        "name": username,  # Store user's name
+        "pin": pin,        # Store user's PIN
+        "balance": 0       # Start with ₹0 balance
+    }
+    print(f"✅ Account for {username} created successfully!")
+
+
+def login():
+    """Handles the user login process."""
+    while True:
+        # Prompt user for card number and PIN
+        card = input("Enter your card number: ")
+        pin = input("Enter your PIN: ")
+
+        # Fetch user data from Bank_data using card number
+        user = Bank_data.get(card)
+
+        # Check if card exists and PIN matches
+        if user and user["pin"] == pin:
+            print(f"✅ Welcome {user['name']}!")
+            banking_system(user)  # Pass user data to banking system
+            break  # Exit login loop after successful login
+        else:
+            print("❌ Invalid card number or PIN. Please try again.")
+            continue
+
+
+def banking_system(user):
+    """Handles the banking features for a logged-in user."""
+
+    while True:
+        # Show main banking menu
+        print(f"\n--- Welcome To The Bank, {user['name']} ---")
+        print("1. Balance Check")
+        print("2. Transfer Funds")
+        print("3. Exit")
+
+        choice = input("Choose the feature you want to use: ")
+
+        if choice == '1':
+            # Show current balance
+            print(f"💰 Your balance is ₹{user['balance']}")
+
+        elif choice == '2':
+            # Handle fund transfer
+            print(f"💰 Your account balance is ₹{user['balance']}")
+            trans_name = input("Enter the name of the person you want to transfer funds to: ")
+            trans_card = input("Enter the card number of the person you want to transfer funds to: ")
+
+            # Validate recipient card number format
+            if not re.match(card_numpat, trans_card):
+                print("❌ Invalid card number. Please enter the card number again.")
+                continue  # Restart transfer process
+
+            try:
+                # Prompt for transfer amount
+                trans_amount = int(input("Enter the amount you want to transfer: ₹"))
+
+                # Check if user has enough balance
+                if trans_amount > user["balance"]:
+                    print("❌ Insufficient balance. Please try again.")
+                    continue
+
+                elif trans_amount <= 0:
+                    print("❌ Invalid transfer amount. Please enter a positive number.")
+                    continue
+
+                else:
+                    # Deduct transfer amount from user's balance
+                    user["balance"] -= trans_amount
+
+                    print(f"✅ ₹{trans_amount} has been transferred successfully to {trans_name} (Card: {trans_card})")
+
+                    # Ask if user wants to see remaining balance
+                    rem_balance = input("Do you want to see your remaining balance? (yes/no): ").strip().lower()
+                    if rem_balance == 'yes':
+                        print(f"💰 Your remaining balance is ₹{user['balance']}")
+                    else:
+                        print("✅ Transfer complete.")
+                    break  # Exit transfer process
+
+            except ValueError:
+                print("❌ Invalid amount. Please enter digits only.")
+                continue
+
+        elif choice == '3':
+            # Exit banking system
+            print("👋 Thank you for using our service. Goodbye!")
+            break
+
+        else:
+            # Handle invalid menu choice
+            print("❌ Invalid choice. Please select 1, 2, or 3.")
+            continue
+
+#-----------------
+# THE COMPLETE BANKING SYSTEM
+#-----------------
+
+
+def banking_menu():
+    """Main menu for the banking application."""
+    while True:
+        print("\n--- Welcome To The Bank ---")
+        print("1. Register a new account")
+        print("2. Login")
+        print("3. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == '1':
+            register()  # Call register function
+        elif choice == '2':
+            login()     # Call login function
+        elif choice == '3':
+            print("👋 Thank you for visiting. Goodbye!")
+            break
+        else:
+            print("❌ Invalid choice. Please select 1, 2, or 3.")
+
+
+# Entry point for the program
+if __name__ == "__main__":
+    banking_menu()  # Start the banking menu
+
 
 
 
@@ -914,8 +1019,8 @@ def black_jack_21(balance):
         """Adjust Ace from 11 to 1 if total > 21"""
         score = sum(hand)
         while score > 21 and 11 in hand:
-            hand.remove(11)
-            hand.append(1)
+            hand.remove(11) 
+            hand.append(1)           
             score = sum(hand)
         return score
 
