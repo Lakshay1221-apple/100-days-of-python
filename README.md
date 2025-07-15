@@ -23,6 +23,7 @@ Each day I learn something new or build something fun. Here’s a glimpse:
 | 9   | Dictionaries and Nesting | Dict, Nesting Dict | The Secret Auction Program, Grading Calculator |
 | 10  |Functions | Title Function | Mathematical calculator |
 | 11  |Functions |Project | The Black Jack Capstone Project |
+| 12  |Scope |Global, Local | Number Guessing Game |
 
 
 > 📌 More coming every day — stay tuned!
