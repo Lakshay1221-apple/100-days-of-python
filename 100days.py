@@ -1105,51 +1105,99 @@
 
 #-----THE NUMBER GUESSING GAME
 
-import random
+# import random
 
-def number_guessing_game():
-    print("Welcome to the Number Guessing Game!")
+# def number_guessing_game():
+#     print("Welcome to the Number Guessing Game!")
 
-    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
-    if difficulty == 'easy':
-        attempts = 10
-    else:
-        attempts = 3
+#     difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+#     if difficulty == 'easy':
+#         attempts = 10
+#     else:
+#         attempts = 3
     
-    print(f"As you choosed difficulty = {difficulty}, You have {attempts} attempts to guess the number.")
+#     print(f"As you choosed difficulty = {difficulty}, You have {attempts} attempts to guess the number.")
     
-    computer = random.randint(1, 100)
-    print("🎉 Welcome to the Number Guessing Game!")
-    print("I'm thinking of a number between 1 and 100.")
-    print(f"You have {attempts} attempts to guess the number.")
+#     computer = random.randint(1, 100)
+#     print("🎉 Welcome to the Number Guessing Game!")
+#     print("I'm thinking of a number between 1 and 100.")
+#     print(f"You have {attempts} attempts to guess the number.")
 
-    while attempts > 0:
-        try:
-            user = int(input("Make a guess: "))         
-        except ValueError:                                 
-            print("❌ Invalid input. Please enter a valid integer.")
-            continue  # Ask again instead of breaking
+#     while attempts > 0:
+#         try:
+#             user = int(input("Make a guess: "))         
+#         except ValueError:                                 
+#             print("❌ Invalid input. Please enter a valid integer.")
+#             continue  # Ask again instead of breaking
 
-        if user < computer:
-            print("🔼 Too low.")
-        elif user > computer:
-            print("🔽 Too high.")
-        else:
-            print(f"✅ Correct! You guessed the number in {10 - attempts + 1} attempts.")
-            break
+#         if user < computer:
+#             print("🔼 Too low.")
+#         elif user > computer:
+#             print("🔽 Too high.")
+#         else:
+#             print(f"✅ Correct! You guessed the number in {10 - attempts + 1} attempts.")
+#             break
 
-        attempts -= 1
-        if attempts > 0:
-            print(f"🔄 You have {attempts} attempts remaining.")
-        else:
-            print(f"❌ You've run out of attempts. The number was {computer}.")
+#         attempts -= 1
+#         if attempts > 0:
+#             print(f"🔄 You have {attempts} attempts remaining.")
+#         else:
+#             print(f"❌ You've run out of attempts. The number was {computer}.")
 
-while True:
-    number_guessing_game()
-    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
-    if play_again != 'yes':
-        print("👋 Thanks for playing! Goodbye!")
-        break
+# while True:
+#     number_guessing_game()
+#     play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+#     if play_again != 'yes':
+#         print("👋 Thanks for playing! Goodbye!")
+#         break
+
+
+
+#---- Debugging and error handling-----
+
+
+# def my_function():
+#     for i in range(1, 20): #to get the print change 20 to 21.
+#         if i == 20:
+#             print("You got it")
+
+
+
+# my_function()
+
+
+# Whenever a function is not working and neither giving any bug then use the print satatement
+
+# pages = 0
+# word_per_page = 0
+# pages = int(input("Enter the number of pages: "))
+# word_per_page = int(input("Enter the number of words per page: "))
+# print(f"pages = {pages}")
+# print(f"word_per_page = {word_per_page}")
+# total_words = pages * word_per_page
+# print(total_words)
+
+def mutable_list(a_list):
+    b_list = []
+    for item in a_list:
+        newitem= item * 2
+        b_list.append(newitem)
+    print(b_list)
+
+    
+mutable_list([1, 2, 3, 4, 5])
+
+
+def check_odd_even(number):
+    """Check if a number is odd or even."""
+    return "Even" if number % 2 == 0 else "Odd"
+
+# Example usage
+try:
+    user_input = int(input("Enter a number: "))
+    print(f"The number {user_input} is {check_odd_even(user_input)}")
+except ValueError:
+    print("❌ Please enter a valid integer.")
 
 
 
