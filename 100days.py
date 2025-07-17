@@ -1177,28 +1177,128 @@
 # total_words = pages * word_per_page
 # print(total_words)
 
-def mutable_list(a_list):
-    b_list = []
-    for item in a_list:
-        newitem= item * 2
-        b_list.append(newitem)
-    print(b_list)
+# def mutable_list(a_list):
+#     b_list = []
+#     for item in a_list:
+#         newitem= item * 2
+#         b_list.append(newitem)
+#     print(b_list)
 
     
-mutable_list([1, 2, 3, 4, 5])
+# mutable_list([1, 2, 3, 4, 5])
 
 
-def check_odd_even(number):
-    """Check if a number is odd or even."""
-    return "Even" if number % 2 == 0 else "Odd"
+# def check_odd_even(number):
+#     """Check if a number is odd or even."""
+#     return "Even" if number % 2 == 0 else "Odd"
 
-# Example usage
-try:
-    user_input = int(input("Enter a number: "))
-    print(f"The number {user_input} is {check_odd_even(user_input)}")
-except ValueError:
-    print("❌ Please enter a valid integer.")
+# # Example usage
+# try:
+#     user_input = int(input("Enter a number: "))
+#     print(f"The number {user_input} is {check_odd_even(user_input)}")
+# except ValueError:
+    # print("❌ Please enter a valid integer.")
 
+
+#The Higher Lower Game
+# score = 0
+
+# def high_low(score):
+
+#     print("Welcome to the Higher Lower Game!")
+#     while True:
+#      question = print("The first question: Which one of the following celebrities has the highest netowrth 'RONALDO' or 'virat kholi'?\nanswer in A or B")
+#      answer = input("Enter your answer")
+#      if answer != "A":
+#          print("you loose\ngame over")
+#          break
+#      else:
+#         print("You won")
+#         score += 1
+#         print(f"print your score is {score}")
+#         return score
+
+# while True:
+#    score = high_low(score)
+#    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+#    if play_again != "yes":
+#       print("Thanks for playing! Goodbye!")
+#       break
+
+
+#--------
+# THE HIGHER LOWER GAME
+#-------
+
+# import random
+
+# score = 0
+
+# # List of questions as dictionaries
+# questions = [
+#     {
+#         "question": "Which one of the following celebrities has the highest net worth?",
+#         "options": {"A": "RONALDO", "B": "Virat Kohli"},
+#         "correct": "A"
+#     },
+#     {
+#         "question": "Which company is older?",
+#         "options": {"A": "Microsoft", "B": "Google"},
+#         "correct": "A"
+#     },
+#     {
+#         "question": "Which country has the larger population?",
+#         "options": {"A": "India", "B": "USA"},
+#         "correct": "A"
+#     },
+#     {
+#         "question": "Which planet is closer to the Sun?",
+#         "options": {"A": "Venus", "B": "Mars"},
+#         "correct": "A"
+#     },
+#     {
+#         "question": "Who has won more Grand Slam titles?",
+#         "options": {"A": "Roger Federer", "B": "Rafael Nadal"},
+#         "correct": "B"
+#     }
+# ]
+
+# def high_low(score):
+#     print("Welcome to the Higher Lower Game!")
+#     while True:
+#         # Pick a random question
+#         q = random.choice(questions)
+
+#         print("\n" + q["question"])
+#         for key, value in q["options"].items():
+#             print(f"{key}: {value}")
+
+#         answer = input("Enter your answer (A or B): ").strip().upper()
+
+#         if answer != q["correct"]:
+#             print("❌ You lose!\nGame over.")
+#             break
+#         else:
+#             print("✅ You won!")
+#             score += 1
+#             print(f"🎯 Your current score is {score}")
+#             return score  # Return updated score
+
+# while True:
+#     score = high_low(score)  # Update the score
+#     play_again = input("\nDo you want to play again? (yes/no): ").strip().lower()
+#     if play_again != "yes":
+#         print("\nThanks for playing! 👋 Goodbye!")
+#         break
+
+    
+
+
+    
+
+
+
+    
 
 
     

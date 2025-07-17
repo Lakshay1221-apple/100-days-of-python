@@ -1090,3 +1090,143 @@ while True:
     if play_again != "yes":
         print(f"\nThanks for playing! You walk away with 💰 {player_balance}")
         break
+#--------
+# THE HIGHER LOWER GAME
+#-------
+
+import random
+
+score = 0
+
+# List of questions as dictionaries
+questions = [
+    {
+        "question": "Which one of the following celebrities has the highest net worth?",
+        "options": {"A": "RONALDO", "B": "Virat Kohli"},
+        "correct": "A"
+    },
+    {
+        "question": "Which company is older?",
+        "options": {"A": "Microsoft", "B": "Google"},
+        "correct": "A"
+    },
+    {
+        "question": "Which country has the larger population?",
+        "options": {"A": "India", "B": "USA"},
+        "correct": "A"
+    },
+    {
+        "question": "Which planet is closer to the Sun?",
+        "options": {"A": "Venus", "B": "Mars"},
+        "correct": "A"
+    },
+    {
+        "question": "Who has won more Grand Slam titles?",
+        "options": {"A": "Roger Federer", "B": "Rafael Nadal"},
+        "correct": "B"
+    }
+]
+
+def high_low(score):
+    print("Welcome to the Higher Lower Game!")
+    while True:
+        # Pick a random question
+        q = random.choice(questions)
+
+        print("\n" + q["question"])
+        for key, value in q["options"].items():
+            print(f"{key}: {value}")
+
+        answer = input("Enter your answer (A or B): ").strip().upper()
+
+        if answer != q["correct"]:
+            print("❌ You lose!\nGame over.")
+            break
+        else:
+            print("✅ You won!")
+            score += 1
+            print(f"🎯 Your current score is {score}")
+            return score  # Return updated score
+
+while True:
+    score = high_low(score)  # Update the score
+    play_again = input("\nDo you want to play again? (yes/no): ").strip().lower()
+    if play_again != "yes":
+        print("\nThanks for playing! 👋 Goodbye!")
+        break
+
+#-----
+# THE COFFEE MACHINE CODE 
+#-----
+
+def coffee_machine():
+    coin = 0
+    cup_sell = 0
+
+    print("☕ Welcome to the Coffee Shop!")
+    Coffee = [ 
+        { 
+            "Code": "A",
+            "Name": "Cappuccino",
+            "Half": 5,
+            "Full": 10
+        },
+        { 
+            "Code": "B",
+            "Name": "Latte",
+            "Half": 4,
+            "Full": 8
+        },
+        { 
+            "Code": "C",
+            "Name": "Espresso",
+            "Half": 3,
+            "Full": 6
+        },
+        { 
+            "Code": "D",
+            "Name": "Mocha",
+            "Half": 2,
+            "Full": 4
+        }
+    ]
+
+    while True:
+        print("\nAvailable Coffee Options:")
+        for coffee in Coffee:
+            print(f"{coffee['Code']}: {coffee['Name']} - Half: ${coffee['Half']}, Full: ${coffee['Full']}")
+
+        choice = input("Enter your coffee choice (A/B/C/D): ").strip().upper()
+
+        # Find the coffee with matching code
+        selected_coffee = None
+        for coffee in Coffee:
+            if coffee["Code"] == choice:
+                selected_coffee = coffee
+                break
+
+
+        if selected_coffee is None:
+            print("❌ Invalid choice. Please select from A, B, C, or D.")
+            continue
+
+        size = input("Enter your Cup Size (Half/Full): ").strip().capitalize()
+        if size not in ["Half", "Full"]:
+            print("❌ Invalid size. Please choose Half or Full.")
+            continue
+
+        price = selected_coffee[size]
+        coin += price
+        cup_sell += 1
+
+        print(f"✅ You ordered a {size} cup of {selected_coffee['Name']}.")
+        print(f"💵 Please pay ${price}.")
+        print(f"📊 Total earnings: ${coin}, Cups sold: {cup_sell}")
+
+        another = input("\nDo you want to order another coffee? (yes/no): ").strip().lower()
+        if another != "yes":
+            print("\n👋 Thank you for visiting the Coffee Shop!")
+            break
+
+# Run the coffee machine
+coffee_machine()
