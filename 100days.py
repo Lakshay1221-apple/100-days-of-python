@@ -1292,16 +1292,125 @@
 #         break
 
     
+#-----------
+# Object Oriented Programming (OPP)
+#-----------
+
+#In OPP we try to model real life model and those model can have things and do things , the things which they have are called Attributes which are modeled which variables and the things which they can do are called Methods which are modelled with functions
 
 
+#PYTHON PACKAGE
+
+# TURTLE PACKAGE
+
+# from turtle import Turtle, Screen
+# timmy = Turtle()
+# print(timmy)
+# timmy.shape('turtle')
+# timmy.color('coral')
+# timmy.forward(100)
+    
+# my_screen = Screen()
+# print(my_screen.canvheight)
+# my_screen.exitonclick()
+
+# PRETTYTABLE PACKAGE
+    
+# from prettytable import PrettyTable
+
+# table = PrettyTable()
+# table.field_names = ["Name", "Age", "City"]
+# table.add_row(["Alice", 25, "New York"])
+# table.add_row(["Bob", 30, "Paris"])
+
+# print(table)
+
+
+# cr = PrettyTable()
+# cr.add_column("pokemon name", ["Pikachu", "Squirtle", "Charmander"])
+# cr.add_column("type", ["Electric", "Water", "Fire"])
+# cr.align = "l"
+# print(cr)
+
+
+# The coffee machine opp version , for now we are gonna treat all other coffee machine files like external libraries
+
+
+# from menu import Menu, MenuItem
+# from coffee_maker import CoffeeMaker
+# from money_machine import MoneyMachine
+
+# my_money_machine = MoneyMachine()
+# my_money_machine.report()
+
+# is_on = True
+
+# my_coffee_maker = CoffeeMaker()
+# my_coffee_maker.report()
+
+# menu = Menu()
+
+# while is_on:
+#     options = menu.get_items()
+#     choice = input(f"What would you like? ({options}): ")
+
+#     if choice == "off": #will off the choice
+#         is_on = False
+
+#     elif choice == "report": #will give the report of the stock and the money maid
+#         my_coffee_maker.report()
+#         my_money_machine.report()
+
+#     else: #and if not both of them it will find the chosen drink
+#         drink = menu.find_drink(choice)
+#         if my_coffee_maker.is_resource_sufficient(drink):
+#             if my_money_machine.make_payment(drink.cost):
+#              my_coffee_maker.make_coffee(drink)
+
+
+# HOW TO CREATE ARE OWN CUSTOM CLASS
+
+# class User:
+
+#     def __init__(self, user_id, username): #self as first parameter is must
+#         self.id  = user_id
+#         self.username = username
+#         self.followers = 0
+#         self.following = 0
+
+#     def follow(self, user):
+#         user.followers += 1
+#         self.following =+ 1
+
+
+
+
+
+
+# user_1 = User('001', 'lakshay') 
+# user_2 = User("002", "raj")
+# user_1.follow(user_2)
+# # user_2.following(user_1)
+# print(user_1.followers)
+# print(user_1.following)
+# print(user_2.followers)
+# print(user_2.following)
+# # print(user_1.username, user_1.id, user_1.followers)
+
+
+
+
+
+
+    
     
 
 
 
-    
 
 
-    
+
+
 
 
     

@@ -1230,3 +1230,10 @@ def coffee_machine():
 
 # Run the coffee machine
 coffee_machine()
+
+
+# THE QUIZ GAME (CLASS FORM)
+
+
+
+
