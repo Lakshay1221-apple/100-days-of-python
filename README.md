@@ -26,7 +26,9 @@ Each day I learn something new or build something fun. Here’s a glimpse:
 | 12  |Scope |Global, Local | Number Guessing Game |
 | 13  |Debugging |Error Handling | Higher Lower Game|
 | 14  |Fuctions| Functions and Dict | Coffee Machine Code |
-
+| 15  |Environment Setup| Local Development Environment Setup | Coffee Machine Code |
+| 16  |OOP| Object Oriented Programming |  |
+| 17  |OOP| Classes and Objects | The Quiz Game |
 
 > 📌 More coming every day — stay tuned!
 
