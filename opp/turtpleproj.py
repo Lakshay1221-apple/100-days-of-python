@@ -38,7 +38,7 @@ for _ in range(1000):
     timmy_the_turtle.forward(25)
     timmy_the_turtle.setheading(random.choice(directions))
 
-
+print("This is your code for the turtle project.")
 
 
 
