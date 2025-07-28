@@ -64,7 +64,8 @@ I’ll be adding some visuals soon to show what the games and projects look like
 Are you doing #100DaysOfCode too?  
 Want to collaborate, share feedback, or just say hi?
 
-- 💼 [My LinkedIn](www.linkedin.com/in/lakshay-raj-b53709303)
+- 💼 [LinkedIn](https://www.linkedin.com/in/lakshay-raj-b53709303/)
+
 - 🌐 [GitHub](https://github.com/Lakshay1221-apple)
 
 ---
