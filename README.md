@@ -29,6 +29,8 @@ Each day I learn something new or build something fun. Here’s a glimpse:
 | 15  |Environment Setup| Local Development Environment Setup | Coffee Machine Code |
 | 16  |OOP| Object Oriented Programming |  |
 | 17  |OOP| Classes and Objects | The Quiz Game |
+| 18  |OOP| Turtle and Graphics user interface | Hirst Spot Painitng |
+| 19  |OOP| Instances State and Higher Order Function | Turtle Racing Game |
 
 > 📌 More coming every day — stay tuned!
 
