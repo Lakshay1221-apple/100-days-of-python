@@ -1,6 +1,6 @@
 import  turtle
 import random
-import colorgram
+import colorgram #a library to extract colors from an image.
 
 rgb_colors = []
 colors = colorgram.extract("image.jpg", 30)
@@ -23,7 +23,7 @@ tim.speed("fastest")
 tim.penup()
 tim.hideturtle()
 
-# # Define a function to generate random RGB colors
+# # Define a function to generate random RGB colors0
 # def random_color():
 #     r = random.randint(0, 255)  # Random Red value
 #     g = random.randint(0, 255)  # Random Green value
