@@ -116,7 +116,7 @@ else:
 
                 race_on = False
                 print("Thank you for playing!")
-                print("Exiting")
+
 
                 break  # Stop race
 
