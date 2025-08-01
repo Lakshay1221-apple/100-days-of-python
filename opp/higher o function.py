@@ -115,10 +115,8 @@ else:
                     print(f"❌ Sorry! You picked {bet}, but {winner} won.")
 
                 race_on = False
-<<<<<<< HEAD
-=======
                 print("Thank you for playing!")
->>>>>>> 6c5702d (Higher order function)
+                print("Exiting...")
                 break  # Stop race
 
 screen.exitonclick()
