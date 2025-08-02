@@ -102,7 +102,7 @@ else:
             # Move each turtle a small random step
             turtle.forward(random.randint(5, 15))
 
-            # Check if turtle crosses finish linel
+            # Check if turtle crosses finish line
             if turtle.xcor() > 350:
                 winner = turtle.color()[0]  # Get winning turtle color
                 screen.title(f"{winner.capitalize()} turtle won the race!")
@@ -116,8 +116,7 @@ else:
 
                 race_on = False
                 print("Thank you for playing!")
-
-
+                print("Exiting")
 
                 break  # Stop race
 
