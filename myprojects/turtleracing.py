@@ -1,4 +1,7 @@
-# THE TURTLE RACE GAME
+
+
+
+# THE TURTLE RACE GAME with Betting Feature
 
 
 from turtle import Turtle, Screen
